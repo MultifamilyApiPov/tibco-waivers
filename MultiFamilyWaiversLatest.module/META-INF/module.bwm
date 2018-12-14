@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:JsonSchema="/T1544026983293Converted/JsonSchema" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="__ylTYPipEeih6sa8aP_eZA" targetNamespace="http://tns.tibco.com/bw/composite/MultiFamilyWaiversLatest.module" name="MultiFamilyWaiversLatest.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_ClZZQviqEeih6sa8aP_eZA" name="waiver" promote="ComponentProcess/waiver">
+    <sca:interface.wsdl xmi:id="_ClsUMPiqEeih6sa8aP_eZA" interface="http://xmlns.example.com/20181205112245PLT#wsdl.interface(waiver)" scaext:wsdlLocation="../Processes/multifamilywaiverslatest/module/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_Cl2FMPiqEeih6sa8aP_eZA" name="RestService" path="/waiver" docBasePath="http://localhost:7777/MultiFamilyWaiversLatest.module" docResourcePath="Waiver" basePath="/" connector="multifamilywaiverslatest.module.Process" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Waiver_1.1.0.json" startJobOnInputException="true" enforceBWServiceResponse="true">
+      <operation xmi:id="_Cl_PIPiqEeih6sa8aP_eZA" operationName="post" nickname="addWaiver" httpMethod="POST" notes="Creates new Waivers" responseStyle="element" requestStyle="element">
+        <responseStatus xmi:id="_CnBw8PiqEeih6sa8aP_eZA" statusCode="201" reasonPhrase="Created" dataType="object"/>
+        <responseStatus xmi:id="_CnBw8fiqEeih6sa8aP_eZA" statusCode="400" reasonPhrase="Bad Request" elementQName="JsonSchema:BadRequest"/>
+        <responseStatus xmi:id="_CnBw8_iqEeih6sa8aP_eZA" statusCode="500" reasonPhrase="Internal Server Error" elementQName="JsonSchema:InternalServerError"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_CnBw9PiqEeih6sa8aP_eZA"/>
+      <import xmi:id="_CnBw8viqEeih6sa8aP_eZA" importType="http://www.w3.org/2001/XMLSchema" namespace="/T1544026983293Converted/JsonSchema"/>
+      <advancedConfig xmi:id="_Cl2FMfiqEeih6sa8aP_eZA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_Cl_PIfiqEeih6sa8aP_eZA" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_AAa7EPiqEeih6sa8aP_eZA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_AAkFAPiqEeih6sa8aP_eZA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_AAkFAfiqEeih6sa8aP_eZA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_AAt2APiqEeih6sa8aP_eZA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_AAt2AfiqEeih6sa8aP_eZA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_AAt2AviqEeih6sa8aP_eZA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_LcCJIPiyEeih6sa8aP_eZA" name="salesforce.wsdl" type="XMLSchema:string" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="__7Nq8PipEeih6sa8aP_eZA" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="__7Nq8fipEeih6sa8aP_eZA" processName="multifamilywaiverslatest.module.Process"/>
+    <sca:service xmi:id="_ClZZQPiqEeih6sa8aP_eZA" name="waiver">
+      <sca:interface.wsdl xmi:id="_ClZZQfiqEeih6sa8aP_eZA" interface="http://xmlns.example.com/20181205112245PLT#wsdl.interface(waiver)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_uNNisPiqEeih6sa8aP_eZA" name="ComponentwaiversBusinessValidations" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_uNNisfiqEeih6sa8aP_eZA" processName="multifamilywaiverslatest.module.waiversBusinessValidations"/>
+  </sca:component>
+  <sca:component xmi:id="_YRPPEPi0Eeih6sa8aP_eZA" name="ComponentwaiversOrchestrator" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_YRPPEfi0Eeih6sa8aP_eZA" processName="multifamilywaiverslatest.module.waiversOrchestrator"/>
+  </sca:component>
+</sca:composite>

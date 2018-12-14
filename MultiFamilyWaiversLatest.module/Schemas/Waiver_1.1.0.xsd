@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="/T1544026983293Converted/JsonSchema" xmlns:tns="/T1544026983293Converted/JsonSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="BadRequest" type="tns:BadRequest"/>
+    <xs:complexType name="BadRequest">
+        <xs:sequence>
+            <xs:element name="code" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="deal" type="tns:deal"/>
+    <xs:complexType name="deal">
+        <xs:sequence>
+            <xs:element name="dealId" type="xs:decimal"/>
+            <xs:element name="waivers" type="tns:Waivers"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Waiver" type="tns:Waiver"/>
+    <xs:complexType name="Waiver">
+        <xs:sequence>
+            <xs:element name="reference" type="xs:string"/>
+            <xs:element name="lenderDelegated">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Yes"/>
+                        <xs:enumeration value="No"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="category">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Pre-review (4660)"/>
+                        <xs:enumeration value="Pricing/Fees"/>
+                        <xs:enumeration value="Insurance"/>
+                        <xs:enumeration value="Guide (other)"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="subCategory">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Financing Structures"/>
+                        <xs:enumeration value="Size"/>
+                        <xs:enumeration value="Addt'l Gfee/Sfee Price Brk, Special Situation"/>
+                        <xs:enumeration value="Healthy Design Certification"/>
+                        <xs:enumeration value="Catastrophic"/>
+                        <xs:enumeration value="Umbrella"/>
+                        <xs:enumeration value="Other"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="descriptor">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="DMBS"/>
+                        <xs:enumeration value="Green Rewards"/>
+                        <xs:enumeration value="Large Loan"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="otherDescriptor" type="xs:string"/>
+            <xs:element minOccurs="0" name="descriptionForFMQuote" type="xs:string"/>
+            <xs:element minOccurs="0" name="detailsAndRationale" type="xs:string"/>
+            <xs:element minOccurs="0" name="pricingFeesComments" type="xs:string"/>
+            <xs:element minOccurs="0" name="guideOtherComments" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="InternalServerError" type="tns:InternalServerError"/>
+    <xs:complexType name="InternalServerError">
+        <xs:sequence>
+            <xs:element name="code" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Waivers" type="tns:Waivers"/>
+    <xs:complexType name="Waivers">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Waivers" type="tns:Waiver"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

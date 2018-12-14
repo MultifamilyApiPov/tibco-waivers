@@ -1,0 +1,16 @@
+{
+    "records": [{
+        "name": "Cloud",
+        "items": [{
+            "localTimestamp": 1544026983152,
+            "localURI": "/MultiFamilyWaiversLatest.module/Service Descriptors/Waiver_1.1.0.json",
+            "disabled": false,
+            "remoteTimestamp": 1544044473000,
+            "localHash": "09db47079b2bc97b404b14b32c854c162ce6edcd",
+            "remoteId": "38",
+            "remoteHash": "09db47079b2bc97b404b14b32c854c162ce6edcd"
+        }],
+        "url": "https://integration.cloud.tibco.com:443"
+    }],
+    "resources": []
+}

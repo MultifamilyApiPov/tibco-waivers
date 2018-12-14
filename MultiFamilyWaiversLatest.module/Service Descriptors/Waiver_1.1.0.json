@@ -1,0 +1,215 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Waiver",
+    "description": "Waiver endpoint",
+    "version": "1.1.0",
+    "x-lastModified": "Nov 30, 2018 09:06AM PST"
+  },
+  "host": "localhost",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "definitions": {
+    "deal": {
+      "type": "object",
+      "properties": {
+        "dealId": {
+          "example": 12345,
+          "type": "number"
+        },
+        "waivers": {
+          "$ref": "#/definitions/Waivers"
+        }
+      },
+      "required": [
+        "dealId",
+        "waivers"
+      ]
+    },
+    "Waivers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Waiver"
+      }
+    },
+    "Waiver": {
+      "type": "object",
+      "properties": {
+        "reference": {
+          "description": "A unique label used to identify this particular waiver.",
+          "type": "string"
+        },
+        "lenderDelegated": {
+          "enum": [
+            "Yes",
+            "No"
+          ],
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "Pre-review (4660)",
+            "Pricing/Fees",
+            "Insurance",
+            "Guide (other)"
+          ],
+          "type": "string"
+        },
+        "subCategory": {
+          "enum": [
+            "Financing Structures",
+            "Size",
+            "Addt'l Gfee/Sfee Price Brk, Special Situation",
+            "Healthy Design Certification",
+            "Catastrophic",
+            "Umbrella",
+            "Other"
+          ],
+          "type": "string"
+        },
+        "descriptor": {
+          "enum": [
+            "DMBS",
+            "Green Rewards",
+            "Large Loan"
+          ],
+          "type": "string"
+        },
+        "otherDescriptor": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Wind",
+              "Flood",
+              "Terrorism",
+              "Earthquake",
+              "Coverage Limit",
+              "Deductible"
+            ]
+          }
+        },
+        "descriptionForFMQuote": {
+          "type": "string"
+        },
+        "detailsAndRationale": {
+          "type": "string"
+        },
+        "pricingFeesComments": {
+          "type": "string"
+        },
+        "guideOtherComments": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "reference",
+        "lenderDelegated",
+        "category",
+        "subCategory"
+      ]
+    },
+    "BadRequest": {
+      "description": "Describes an error response",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Code defining an error message",
+          "example": 123,
+          "type": "string"
+        },
+        "message": {
+          "description": "Message describing the error",
+          "example": "This is an error message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ]
+    },
+    "InternalServerError": {
+      "description": "Describes an error response",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Code defining an error message",
+          "example": 123,
+          "type": "string"
+        },
+        "message": {
+          "description": "Message describing the error",
+          "example": "This is an error message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ]
+    }
+  },
+  "paths": {
+    "/waiver": {
+      "post": {
+        "description": "Creates new Waivers",
+        "operationId": "addWaiver",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "dealId": {
+                  "type": "integer"
+                },
+                "reasonIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "dealId",
+                "reasonIds"
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/BadRequest"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/InternalServerError"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Waiver Request",
+            "schema": {
+              "$ref": "#/definitions/deal"
+            }
+          }
+        ],
+        "summary": "Add new Waivers"
+      }
+    }
+  }
+}

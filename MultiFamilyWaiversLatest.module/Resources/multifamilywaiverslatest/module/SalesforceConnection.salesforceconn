@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:salesforceconnection="http://ns.tibco.com/bw/palette/salesforceconnection" xmi:id="_eaUYEfiyEeih6sa8aP_eZA" name="multifamilywaiverslatest.module.SalesforceConnection" type="salesforceconnection:SalesforceConnection">
+  <jndi:configuration xsi:type="salesforceconnection:SalesforceConnection" xmi:id="_eaUYEviyEeih6sa8aP_eZA" wsdlFilePath="/SalesforceResources/dedev1.wsdl" serverURL="https://test.salesforce.com/services/Soap/c/44.0/0DF3C000000GoH9" userName="tibco_user@fanniemae.com.dedev1" password="#!LWvWXEJH8Q3MCSyU5O/2Vb9Wx1fJRe635CQrrVGN7tQ="/>
+</jndi:namedResource>
